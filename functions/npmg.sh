@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-npmg() {
+function npmg() {
 	npm list -g --depth=0
 }

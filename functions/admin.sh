@@ -1,5 +1,5 @@
 #!/usr/bin/usr bash
 
-admin() {
+function admin() {
 	start ~/terminal/admin.lnk
 }

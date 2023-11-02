@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-bt() {
+function bt() {
 	start ms-settings:bluetooth
 }
 
-dsp() {
+function dsp() {
 	start ms-settings:display
 }
 
-clip() {
+function clip() {
 	start ms-settings:clipboard
 }
 
-control() {
+function control() {
 	powershell ~/terminal/powershell/control-panel.ps1
 }
