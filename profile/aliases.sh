@@ -6,12 +6,7 @@ alias ls='ls -F --color=auto --show-control-chars'
 alias ll='ls -l'
 
 source ~/.sd/sd.sh
-source ~/terminal/git-bash/source-functions.sh
-
-alias lex='sd -root=/c/lex'
-alias dev='sd -root=/c/dev'
-alias p='sd -root=/c/dev/practice'
-alias j='sd -root=/c/dev/projects'
+source ~/.terminal/git-bash/source-functions.sh
 
 case "$TERM" in
 xterm*)
