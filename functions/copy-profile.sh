@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 profile_dir=/etc/profile.d/
-terminal_dir=~/terminal/git-bash/profile
+terminal_dir=~/.terminal/git-bash/profile
 
 function copy-profile() {
 	if test -d $terminal_dir; then

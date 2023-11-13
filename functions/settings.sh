@@ -13,5 +13,5 @@ function clip() {
 }
 
 function control() {
-	powershell ~/terminal/powershell/control-panel.ps1
+	powershell ~/.terminal/powershell/control-panel.ps1
 }
