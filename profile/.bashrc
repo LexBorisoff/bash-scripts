@@ -1,5 +1,7 @@
 PROMPT_COMMAND='history -a'
 
+source /etc/profile.d/aliases.sh
+
 # auto-launching ssh-agent
 env=~/.ssh/agent.env
 agent_load_env() { test -f "$env" && . "$env" >|/dev/null; }
