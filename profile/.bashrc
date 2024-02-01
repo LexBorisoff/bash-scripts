@@ -1,3 +1,5 @@
+# ~/.bashrc
+
 PROMPT_COMMAND='history -a'
 
 source /etc/profile.d/aliases.sh
