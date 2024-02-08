@@ -1,4 +1,8 @@
+# ~/.bashrc
+
 PROMPT_COMMAND='history -a'
+
+source /etc/profile.d/aliases.sh
 
 # auto-launching ssh-agent
 env=~/.ssh/agent.env
