@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+function www() {
+	if command -v web &>/dev/null; then
+		web "$@"
+	fi
+}
+
 function mdn() {
 	if command -v web &>/dev/null; then
 		web --engine=mdn "$@"
@@ -27,5 +33,11 @@ function ff() {
 function yt() {
 	if command -v web &>/dev/null; then
 		web --engine=youtube "$@"
+	fi
+}
+
+function gpt() {
+	if command -v web &>/dev/null; then
+		web --engine=chatgpt "$@"
 	fi
 }
