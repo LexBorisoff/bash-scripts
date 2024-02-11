@@ -20,7 +20,7 @@ function npms() {
 
 function npmr() {
 	if command -v web &>/dev/null; then
-		web --engine=npm -r=package "$@"
+		web --engine=npm -r "$@"
 	fi
 }
 
