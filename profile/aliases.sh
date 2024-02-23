@@ -3,7 +3,7 @@
 
 # --show-control-chars: help showing Korean or accented characters
 alias ls='ls -F --color=auto --show-control-chars'
-alias ll='ls -l'
+alias ll='ls -lA'
 
 source ~/.sd/sd.sh
 source ~/.terminal/git-bash/source-functions.sh
