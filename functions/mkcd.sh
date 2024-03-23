@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function mkcd() {
+mkcd() {
 	if test -d $1; then
 		echo '"'$1'"' already exists
 	else

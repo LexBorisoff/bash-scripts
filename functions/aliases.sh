@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-function ea() {
+ea() {
 	np /etc/profile.d/aliases.sh
 }
 
-function sa() {
+sa() {
 	source /etc/profile.d/aliases.sh
 }

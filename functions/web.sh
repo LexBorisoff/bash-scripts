@@ -1,42 +1,42 @@
 #!/usr/bin/env bash
 
-function www() {
+www() {
 	if command -v web &>/dev/null; then
 		web "$@"
 	fi
 }
 
-function mdn() {
+mdn() {
 	if command -v web &>/dev/null; then
 		web --engine=mdn "$@"
 	fi
 }
 
-function npms() {
+npms() {
 	if command -v web &>/dev/null; then
 		web --engine=npm "$@"
 	fi
 }
 
-function npmr() {
+npmr() {
 	if command -v web &>/dev/null; then
 		web --engine=npm -r "$@"
 	fi
 }
 
-function ff() {
+ff() {
 	if command -v web &>/dev/null; then
 		web --browser=firefox "$@"
 	fi
 }
 
-function yt() {
+yt() {
 	if command -v web &>/dev/null; then
 		web --engine=youtube "$@"
 	fi
 }
 
-function gpt() {
+gpt() {
 	if command -v web &>/dev/null; then
 		web --engine=chatgpt "$@"
 	fi
