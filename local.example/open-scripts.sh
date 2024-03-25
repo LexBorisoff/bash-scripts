@@ -1,3 +1,3 @@
-function open-scripts() {
+open-scripts() {
 	code ~/.terminal/git-bash
 }

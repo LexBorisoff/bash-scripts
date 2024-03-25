@@ -3,7 +3,7 @@
 profile_dir=/etc/profile.d/
 terminal_dir=~/.terminal/git-bash/profile
 
-function copy-profile() {
+copy-profile() {
 	if test -d $terminal_dir; then
 		cp $profile_dir/git-prompt.sh $profile_dir/aliases.sh $terminal_dir
 	else
