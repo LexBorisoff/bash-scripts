@@ -41,3 +41,9 @@ function gpt() {
 		web --engine=chatgpt "$@"
 	fi
 }
+
+claude() {
+	if command -v web &>/dev/null; then
+		web --engine=claude "$@"
+	fi
+}
