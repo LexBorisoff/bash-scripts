@@ -11,7 +11,3 @@ dsp() {
 clip() {
 	start ms-settings:clipboard
 }
-
-control() {
-	powershell ~/.terminal/powershell/control-panel.ps1
-}
