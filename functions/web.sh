@@ -1,26 +1,14 @@
 #!/usr/bin/env bash
 
-www() {
-	if command -v web &>/dev/null; then
-		web "$@"
-	fi
-}
-
 mdn() {
 	if command -v web &>/dev/null; then
 		web --engine=mdn "$@"
 	fi
 }
 
-npms() {
+npmjs() {
 	if command -v web &>/dev/null; then
 		web --engine=npm "$@"
-	fi
-}
-
-npmr() {
-	if command -v web &>/dev/null; then
-		web --engine=npm -r "$@"
 	fi
 }
 
