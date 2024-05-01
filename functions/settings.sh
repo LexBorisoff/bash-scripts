@@ -4,10 +4,13 @@ bt() {
 	start ms-settings:bluetooth
 }
 
-dsp() {
+display() {
 	start ms-settings:display
 }
 
-clip() {
+clipboard() {
 	start ms-settings:clipboard
 }
+
+alias dsp=display
+alias clip=clipboard
