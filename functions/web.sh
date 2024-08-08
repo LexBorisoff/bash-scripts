@@ -12,6 +12,12 @@ npmjs() {
 	fi
 }
 
+github() {
+	if command -v web &>/dev/null; then
+		web --engine=github "$@"
+	fi
+}
+
 ff() {
 	if command -v web &>/dev/null; then
 		web --browser=firefox "$@"
@@ -21,17 +27,5 @@ ff() {
 yt() {
 	if command -v web &>/dev/null; then
 		web --engine=youtube "$@"
-	fi
-}
-
-gpt() {
-	if command -v web &>/dev/null; then
-		web --engine=chatgpt "$@"
-	fi
-}
-
-claude() {
-	if command -v web &>/dev/null; then
-		web --engine=claude "$@"
 	fi
 }
