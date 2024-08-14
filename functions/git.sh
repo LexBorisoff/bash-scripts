@@ -6,3 +6,9 @@ gc() {
 		git commit -m "$message"
 	fi
 }
+
+gch() {
+	git checkout "$@"
+}
+
+__git_complete gch _git_checkout
