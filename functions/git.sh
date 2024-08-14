@@ -11,4 +11,6 @@ gch() {
 	git checkout "$@"
 }
 
-__git_complete gch _git_checkout
+if command -v __git_complete &>/dev/null; then
+	__git_complete gch _git_checkout
+fi
