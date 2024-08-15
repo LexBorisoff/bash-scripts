@@ -5,7 +5,7 @@
 alias ls='ls -F --color=auto --show-control-chars'
 alias ll='ls -lA'
 
-source ~/.sd/sd.sh
+# custom shell scripts
 source ~/.terminal/git-bash/source-functions.sh
 
 case "$TERM" in
