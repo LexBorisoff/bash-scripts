@@ -1,5 +1,1 @@
-#!/usr/bin/env bash
-
-npmg() {
-	npm list -g --depth=0
-}
+alias npmg='npm list -g --depth=0'

@@ -1,5 +1,7 @@
 #!/usr/bin/usr bash
 
 admin() {
-	start ~/.terminal/admin.lnk
+	if test -f ~/.terminal/admin.lnk; then
+		start ~/.terminal/admin.lnk
+	fi
 }
