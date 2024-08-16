@@ -4,21 +4,23 @@ alias profile-source='source ~/.bashrc'
 
 profile-copy() {
 	local profile_dir=/etc/profile.d/
-	local terminal_dir=~/.terminal/git-bash/profile
+	local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+	local parent_dir="$(dirname "$script_dir")"
+	local backup_dir=$parent_dir/profile
 	local bashrc=~/.bashrc
 	local inputrc=~/.inputrc
 
-	if test -d $terminal_dir; then
-		cp $profile_dir/git-prompt.sh $profile_dir/aliases.sh $terminal_dir
+	if test -d $backup_dir; then
+		cp $profile_dir/git-prompt.sh $profile_dir/aliases.sh $backup_dir
 
 		if test -f $inputrc; then
-			cp $inputrc $terminal_dir
+			cp $inputrc $backup_dir
 		fi
 
 		if test -f $bashrc; then
-			cp $bashrc $terminal_dir
+			cp $bashrc $backup_dir
 		fi
 	else
-		echo '"'$terminal_dir'"' does not exist
+		echo '"'$backup_dir'"' does not exist
 	fi
 }
