@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-alias profile-source='source ~/.bashrc'
-
-profile-copy() {
+__profile_copy() {
 	local profile_dir=/etc/profile.d/
 	local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 	local parent_dir="$(dirname "$script_dir")"
