@@ -7,10 +7,10 @@ gc() {
 	fi
 }
 
-gch() {
-	git checkout "$@"
+gs() {
+	git switch "$@"
 }
 
 if command -v __git_complete &>/dev/null; then
-	__git_complete gch _git_checkout
+	__git_complete gs _git_checkout
 fi
