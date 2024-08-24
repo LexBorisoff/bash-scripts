@@ -8,4 +8,4 @@ get-alias() {
 	fi
 }
 
-alias ll='ls -l'
+alias ll='ls -lA'
