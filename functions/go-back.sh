@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-gb() {
+back() {
 	local num=$1
 
 	if [ -z "$num" ]; then
