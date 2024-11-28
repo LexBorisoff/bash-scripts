@@ -2,7 +2,7 @@
 
 PROMPT_COMMAND='history -a'
 
-source /etc/profile.d/aliases.sh
+test -f ~/.terminal/git-bash/source.sh && . ~/.terminal/git-bash/source.sh
 
 # auto-launching ssh-agent
 env=~/.ssh/agent.env
