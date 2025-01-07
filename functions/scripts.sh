@@ -1,4 +1,4 @@
-#!/usr/bin/usr bash
+#!/usr/bin/env bash
 
 __scripts() {
 	local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"

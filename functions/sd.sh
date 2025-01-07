@@ -3,5 +3,5 @@
 source ~/.sd/sd.sh
 
 if command -v sd &>/dev/null; then
-	sd .
+  sd .
 fi
