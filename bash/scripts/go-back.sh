@@ -3,7 +3,7 @@
 back() {
 	local num=$1
 
-	if [ -z "$num" ]; then
+	if test -z "$num"; then
 		num=1
 	fi
 

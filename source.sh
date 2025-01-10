@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
 
-__source_functions() {
-	local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-	local functions_dir="$script_dir/functions"
-	local local_dir="$script_dir/local"
+__source-custom-bash-scripts() {
+	local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+	local scripts_dir="$current_dir/bash/scripts"
+	local local_dir="$current_dir/bash/local"
 
-	if [ -d "$functions_dir" ]; then
-		for file in "$functions_dir"/*.sh; do
-			if [ -f "$file" ]; then
-				source "$file"
+	if test -d "$scripts_dir"; then
+		for file in "$scripts_dir"/*.sh; do
+			if test -f "$file"; then
+				. "$file"
 			fi
 		done
 	fi
 
-	if [ -d "$local_dir" ]; then
+	if test -d "$local_dir"; then
 		for file in "$local_dir"/*.sh; do
-			if [ -f "$file" ]; then
-				source "$file"
+			if test -f "$file"; then
+				. "$file"
 			fi
 		done
 	fi
 }
 
-__source_functions
+__source-custom-bash-scripts
