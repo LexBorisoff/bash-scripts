@@ -1,8 +1,8 @@
 # ~/.bashrc
 
 PROMPT_COMMAND='history -a'
-
-test -f ~/.terminal/git-bash/source.sh && . ~/.terminal/git-bash/source.sh
+# custom shell scripts
+test -f ~/.terminal/shell-scripts/source.sh && . ~/.terminal/shell-scripts/source.sh
 
 # auto-launching ssh-agent
 env=~/.ssh/agent.env
