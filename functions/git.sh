@@ -26,6 +26,38 @@ gb() {
 	fi
 }
 
+# switch to the matched branch (gb + gs)
+gbs() {
+	sed_arg='s/\x1B\[[0-9;]*[a-zA-Z]//g'
+
+	if ! test -z "$1"; then
+		branch=$(gb "$1" | sed "$sed_arg" | awk '{print $1}' | head -n 1)
+		echo $branch
+
+		if ! test -z "$branch"; then
+			git switch "$branch"
+		else
+			echo "No matching branch found."
+		fi
+	else
+		last_gb_command=$(history | tail -n 10 | grep -E '^[ ]*[0-9]+[ ]+gb[ ]+[^ ]+' | tail -n 1 | awk '{$1=""; print substr($0,2)}')
+
+		if [[ "$last_gb_command" =~ ^gb[[:space:]]+(.+) ]]; then
+			search_term=${BASH_REMATCH[1]}
+
+			# Re-run the logic for the captured branch
+			branch=$(gb "$search_term" | sed "$sed_arg" | awk '{print $1}' | head -n 1)
+			echo $branch
+
+			if ! test -z "$branch"; then
+				git switch "$branch"
+			else
+				echo "No matching branch found for '$search_term'."
+			fi
+		fi
+	fi
+}
+
 # show/filter logs
 gl() {
 	if ! test -z "$1"; then
