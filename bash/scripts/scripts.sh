@@ -2,7 +2,7 @@
 
 __shell-scripts() {
 	local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-	local bash_dir="$(dirname "$current_dir")"
+	local bash_dir="$(dirname "$(dirname "$current_dir")")"
 
 	if command -v sd &>/dev/null; then
 		sd -root=$bash_dir "$@"
@@ -11,7 +11,7 @@ __shell-scripts() {
 
 __open-shell-scripts() {
 	local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-	local bash_dir="$(dirname "$current_dir")"
+	local bash_dir="$(dirname "$(dirname "$current_dir")")"
 
 	code $bash_dir
 }
