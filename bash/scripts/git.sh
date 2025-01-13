@@ -66,3 +66,8 @@ gl() {
 		git log
 	fi
 }
+
+stash() {
+	local message="$*"
+	git stash push -u -m "$message"
+}
