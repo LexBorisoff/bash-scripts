@@ -17,11 +17,10 @@ else
 			. "$COMPLETION_PATH/git-prompt.sh"
 		fi
 	fi
-	
-	
+
 	PS1='\n\[\033[1;30m\][\@]\[\033[31m\]`__git_ps1`' # time and git branch
-	PS1="$PS1"'\n\[\033[1;32m\]\w' # current path
-	PS1="$PS1"'\n\[\033[1;31m\]$ \[\033[00m\]' # input
+	PS1="$PS1"'\n\[\033[1;32m\]\w'                    # current path
+	PS1="$PS1"'\n\[\033[1;31m\]$ \[\033[00m\]'        # input
 fi
 
 MSYS2_PS1="$PS1" # for detection by MSYS2 SDK's bash.basrc
