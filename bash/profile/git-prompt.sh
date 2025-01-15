@@ -7,9 +7,6 @@ fi
 if test -f ~/.config/git/git-prompt.sh; then
 	. ~/.config/git/git-prompt.sh
 else
-	PS1='\n'
-	PS1="$PS1"'\[\033[1;30m\][\@]'
-
 	if test -z "$WINELOADERNOEXEC"; then
 		GIT_EXEC_PATH="$(git --exec-path 2>/dev/null)"
 		COMPLETION_PATH="${GIT_EXEC_PATH%/libexec/git-core}"
@@ -18,14 +15,13 @@ else
 		if test -f "$COMPLETION_PATH/git-prompt.sh"; then
 			. "$COMPLETION_PATH/git-completion.bash"
 			. "$COMPLETION_PATH/git-prompt.sh"
-			PS1="$PS1"'\[\033[31m\]`__git_ps1`' # bash function
 		fi
 	fi
-	PS1="$PS1"'\n'
-	PS1="$PS1"'\[\033[1;32m\]\w'
-	PS1="$PS1"'\n'
-	PS1="$PS1"'\[\033[1;31m\]$ '
-	PS1="$PS1"'\[\033[00m\]'
+	
+	
+	PS1='\n\[\033[1;30m\][\@]\[\033[31m\]`__git_ps1`' # time and git branch
+	PS1="$PS1"'\n\[\033[1;32m\]\w' # current path
+	PS1="$PS1"'\n\[\033[1;31m\]$ \[\033[00m\]' # input
 fi
 
 MSYS2_PS1="$PS1" # for detection by MSYS2 SDK's bash.basrc

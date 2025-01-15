@@ -8,10 +8,7 @@ gc() {
 	fi
 }
 
-# git switch
-gs() {
-	git switch "$@"
-}
+alias gs="git switch"
 
 if command -v __git_complete &>/dev/null; then
 	__git_complete gs _git_checkout
