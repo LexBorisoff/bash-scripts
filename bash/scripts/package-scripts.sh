@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-test -f ~/.package-scripts/source.sh && . ~/.package-scripts/source.sh
-
-if command -v scripts &>/dev/null; then
-  alias s='scripts'
+if test -d ~/.package-scripts/bin; then
+  export PATH=~/.package-scripts/bin:$PATH
 fi

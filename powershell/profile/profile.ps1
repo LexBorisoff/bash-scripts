@@ -1,3 +1,7 @@
+if (Test-Path -Path "$env:HOMEPATH\.package-scripts\bin") {
+  $env:Path = "$env:HOMEPATH\.package-scripts\bin;$env:Path"
+}
+
 function prompt {
   $time = Get-Date -Format "[hh:mm tt]"
   $fullPath = Get-Location
