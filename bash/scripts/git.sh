@@ -29,7 +29,6 @@ gbs() {
 
 	if ! test -z "$1"; then
 		branch=$(gb "$1" | sed "$sed_arg" | awk '{print $1}' | head -n 1)
-		echo $branch
 
 		if ! test -z "$branch"; then
 			git switch "$branch"
