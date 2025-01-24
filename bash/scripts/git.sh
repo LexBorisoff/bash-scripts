@@ -17,6 +17,15 @@ fi
 # show/filter branches
 gb() {
 	if ! test -z "$1"; then
+		git branch | grep "$1" --color='always'
+	else
+		git branch
+	fi
+}
+
+# show/filter branches upstream
+gbv() {
+	if ! test -z "$1"; then
 		git branch -vv --color='always' | grep "$1" --color='always'
 	else
 		git branch -vv
@@ -28,7 +37,7 @@ gbs() {
 	sed_arg='s/\x1B\[[0-9;]*[a-zA-Z]//g'
 
 	if ! test -z "$1"; then
-		branch=$(gb "$1" | sed "$sed_arg" | awk '{print $1}' | head -n 1)
+		branch=$(git branch | grep "$1" | sed "$sed_arg" | awk '{print $1}' | head -n 1)
 
 		if ! test -z "$branch"; then
 			git switch "$branch"
@@ -42,8 +51,7 @@ gbs() {
 			search_term=${BASH_REMATCH[1]}
 
 			# Re-run the logic for the captured branch
-			branch=$(gb "$search_term" | sed "$sed_arg" | awk '{print $1}' | head -n 1)
-			echo $branch
+			branch=$(git branch | grep "$search_term" | sed "$sed_arg" | awk '{print $1}' | head -n 1)
 
 			if ! test -z "$branch"; then
 				git switch "$branch"
