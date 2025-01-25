@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+alias prune='git remote prune origin'
+
 # git commit
 gc() {
 	if command -v git &>/dev/null; then
