@@ -15,3 +15,12 @@ __open-shell-scripts() {
 
 	code $bash_dir
 }
+
+__pull-scripts() {
+	local current_dir=$(pwd)
+
+	cd ~/.terminal/shell-scripts
+	git pull
+
+	cd $current_dir
+}
