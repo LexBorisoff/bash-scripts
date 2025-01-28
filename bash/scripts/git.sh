@@ -39,7 +39,7 @@ gbs() {
 	sed_arg='s/\x1B\[[0-9;]*[a-zA-Z]//g'
 
 	if ! test -z "$1"; then
-		branch=$(git branch | grep "$1" | sed "$sed_arg" | awk '{print $1}' | head -n 1)
+		branch=$(git branch | sed "$sed_arg" | grep "$1" | awk '{print ($1 == "*") ? $2 : $1}' | head -n 1)
 
 		if ! test -z "$branch"; then
 			git switch "$branch"
@@ -53,7 +53,7 @@ gbs() {
 			search_term=${BASH_REMATCH[1]}
 
 			# Re-run the logic for the captured branch
-			branch=$(git branch | grep "$search_term" | sed "$sed_arg" | awk '{print $1}' | head -n 1)
+			branch=$(git branch | sed "$sed_arg" | grep "$search_term" | awk '{print ($1 == "*") ? $2 : $1}' | head -n 1)
 
 			if ! test -z "$branch"; then
 				git switch "$branch"
