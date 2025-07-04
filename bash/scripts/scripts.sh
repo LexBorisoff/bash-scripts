@@ -5,7 +5,7 @@ __shell-scripts() {
 	local bash_dir="$(dirname "$(dirname "$current_dir")")"
 
 	if command -v sd &>/dev/null; then
-		sd -root=$bash_dir "$@"
+		sd -r $bash_dir "$@"
 	fi
 }
 
