@@ -1,14 +1,34 @@
 #!/usr/bin/env bash
 
-__source-custom-bash-scripts() {
+__scripts-source() {
 	local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-	local scripts_dir="$current_dir/bash/scripts"
-	local local_dir="$current_dir/bash/local"
+	local scripts_dir="$current_dir/scripts"
+	local local_dir="$current_dir/local"
+	local ignore_file="$current_dir/.ignore"
+
+	# Read ignore list into array, if file exists
+	local -a ignored_files=()
+	if test -f "$ignore_file"; then
+		mapfile -t ignored_files < <(tr -d '\r' < "$ignore_file")
+	fi
 
 	if test -d "$scripts_dir"; then
 		for file in "$scripts_dir"/*.sh; do
 			if test -f "$file"; then
-				. "$file"
+				local filename="$(basename "$file")"
+
+				# Check if the file is in the ignore list
+				local skip=false
+				for ignore in "${ignored_files[@]}"; do
+					if [[ "$filename" == "$ignore" ]]; then
+						skip=true
+						break
+					fi
+				done
+
+				if ! $skip; then
+					. "$file"
+				fi
 			fi
 		done
 	fi
@@ -21,5 +41,21 @@ __source-custom-bash-scripts() {
 		done
 	fi
 }
+__scripts-source
 
-__source-custom-bash-scripts
+# utility functions
+__scripts-sd() {
+	if command -v sd &>/dev/null; then
+		local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+		local bash_dir="$(dirname "$(dirname "$current_dir")")"
+
+		sd -r $bash_dir "$@"
+	fi
+}
+
+__scripts-open() {
+	local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+	local bash_dir="$(dirname "$(dirname "$current_dir")")"
+
+	code $bash_dir
+}

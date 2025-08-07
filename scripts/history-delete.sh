@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dh() {
+history-delete() {
 	local clear_screen=0
 
 	while [[ $# -gt 0 ]]; do
