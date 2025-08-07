@@ -47,15 +47,11 @@ __scripts-source
 __scripts-sd() {
 	if command -v sd &>/dev/null; then
 		local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-		local bash_dir="$(dirname "$(dirname "$current_dir")")"
-
-		sd -r $bash_dir "$@"
+		sd -r $current_dir "$@"
 	fi
 }
 
 __scripts-open() {
 	local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-	local bash_dir="$(dirname "$(dirname "$current_dir")")"
-
-	code $bash_dir
+	code $current_dir
 }
