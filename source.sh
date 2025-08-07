@@ -2,14 +2,23 @@
 
 __scripts-source() {
 	local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+	local pre_dir="$current_dir/pre"
 	local scripts_dir="$current_dir/scripts"
 	local local_dir="$current_dir/local"
-	local ignore_file="$current_dir/.ignore"
+
+	if test -d "$pre_dir"; then
+		for file in "$pre_dir"/*.sh; do
+			if test -f "$file"; then
+				. "$file"
+			fi
+		done
+	fi
 
 	# Read ignore list into array, if file exists
+	local ignore_file="$current_dir/.ignore"
 	local -a ignored_files=()
 	if test -f "$ignore_file"; then
-		mapfile -t ignored_files < <(tr -d '\r' < "$ignore_file")
+		mapfile -t ignored_files < <(tr -d '\r' <"$ignore_file")
 	fi
 
 	if test -d "$scripts_dir"; then
