@@ -8,3 +8,7 @@ github-ssh-key() {
 	cd ~/.ssh/github
 	ssh-keygen -t ed25519 -C "lex@borisoff.dev"
 }
+
+clone() {
+	git clone git@github.com:LexBorisoff/$1.git $2
+}
