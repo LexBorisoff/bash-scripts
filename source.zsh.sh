@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 __scripts-source() {
-	local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+	local current_dir="$(cd "$(dirname "${(%):-%x}")" &>/dev/null && pwd)"
 	local pre_dir="$current_dir/pre"
 	local scripts_dir="$current_dir/scripts"
 	local local_dir="$current_dir/local"
@@ -18,7 +18,7 @@ __scripts-source() {
 	local ignore_file="$current_dir/.ignore"
 	local -a ignored_files=()
 	if test -f "$ignore_file"; then
-		mapfile -t ignored_files < <(tr -d '\r' <"$ignore_file")
+		ignored_files=("${(f)$(< "$ignore_file")}")
 	fi
 
 	if test -d "$scripts_dir"; then
@@ -55,14 +55,14 @@ __scripts-source
 # utility functions
 __scripts-sd() {
 	if command -v sd &>/dev/null; then
-		local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+		local current_dir="$(cd "$(dirname "${(%):-%x}")" &>/dev/null && pwd)"
 		sd -r $current_dir "$@"
 	fi
 }
 
 __scripts-open() {
 	if command -v code &>/dev/null; then
-		local current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+		local current_dir="$(cd "$(dirname "${(%):-%x}")" &>/dev/null && pwd)"
 		code $current_dir
 	fi
 }
